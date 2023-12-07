@@ -6,7 +6,7 @@
   },
   "requires": [{
     "type": "conda",
-    "name": "ffmpeg",
+    "name": ["ffmpeg", "ninja"],
     "args": "-c conda-forge"
   }],
   "run": [{
