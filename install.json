@@ -5,6 +5,9 @@
     "default": "pip install torch torchvision torchaudio"
   },
   "requires": [{
+    "gpu": "nvidia",
+    "name": "cuda"
+  }, {
     "type": "conda",
     "name": "ffmpeg",
     "args": "-c conda-forge"

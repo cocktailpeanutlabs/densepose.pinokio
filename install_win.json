@@ -5,8 +5,11 @@
     "default": "pip install torch torchvision torchaudio"
   },
   "requires": [{
+    "gpu": "nvidia",
+    "name": "cuda"
+  }, {
     "type": "conda",
-    "name": ["ffmpeg", "ninja"],
+    "name": "ffmpeg",
     "args": "-c conda-forge"
   }],
   "run": [{
@@ -24,6 +27,9 @@
       "path": "app",
       "env": { "TMPDIR": "C:\\TMP" },
       "message": [
+        "vcvars64.bat",
+        "set USE_NINJA=0",
+        "set DISTUTILS_USE_SDK=1",
         "{{(gpu === 'nvidia' ? self.cmds.nvidia : (gpu === 'amd' ? self.cmds.amd : self.cmds.default))}}",
         "pip install -r ../requirements.txt",
         "git clone https://github.com/facebookresearch/detectron2.git",
